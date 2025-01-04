@@ -101,8 +101,8 @@ const App = () => {
         }
   
         // Set state with parsed data
-        setEngagementData(parsedData?.engagement_metrics || {}); // Ensure fallback if engagement_metrics is undefined
-        setMarkdownInsights(parsedData?.insights || ""); // Ensure fallback if insights is undefined
+        setEngagementData(parsedData[0]?.engagement_metrics || {}); // Ensure fallback if engagement_metrics is undefined
+        setMarkdownInsights(parsedData[0]?.insights || ""); // Ensure fallback if insights is undefined
       } catch (error) {
         console.error("Unexpected error while processing response:", error);
       } finally {
@@ -181,7 +181,7 @@ const App = () => {
           disabled={loading}
         />
         <p className="text-sm text-gray-500 mb-4">
-          &bull; Available Post Types: <b> 'carousel', 'reels', 'static_image',image,video,text, & text_post</b>
+          &bull; Available Post Types: <b> carousel, reels, static_image,image,video,text, & text_post</b>
         </p>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-auto w-full"
@@ -321,11 +321,11 @@ const App = () => {
             </div>
 
             {/* Insights Section */}
-            <div className={` ${darkMode ? "bg-gray-800 text-white" : "bg-gray-100"} shadow-md rounded-lg p-6 mt-8 text-2xl w-5/6 mx-auto`}>
-              <h2 className="text-3xl font-semibold mb-4 text-center font-mono">
+            <div className={` ${darkMode ? "bg-gray-800 text-white" : "bg-gray-100"} shadow-md rounded-lg p-6 mt-8 w-5/6 mx-auto`}>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 text-center font-mono">
                 Insights (By LangFlow + Gemini✨)
               </h2>
-              <Markdown className="prose font-serif">{markdownInsights}</Markdown>
+              <Markdown className="prose font-serif text-lg md:text-xl lg:text-2xl">{markdownInsights}</Markdown>
             </div>
           </>
         ): (<>
