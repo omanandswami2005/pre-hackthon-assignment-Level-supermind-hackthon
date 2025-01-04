@@ -74,7 +74,7 @@ class LangflowClient {
 async function main(inputValue, inputType = 'chat', outputType = 'chat', stream = false) {
     const flowIdOrName = '49c12f1b-80f3-45b4-9f8f-e6eb0dd3ed55';
     const langflowId = '90ee7bfa-450b-4ba0-97c8-d755b85fbbf2';
-    const applicationToken = 'AstraCS:SvuqmSjtmiRPDDsaMeKXslht:c3773d4b8591ed81002c6841bc2c5712541c5f4a5ef1bc853b90c534425f0455';
+    const applicationToken = '<YOUR_APPLICATION_TOKEN>';
     const langflowClient = new LangflowClient('https://api.langflow.astra.datastax.com',
         applicationToken);
 

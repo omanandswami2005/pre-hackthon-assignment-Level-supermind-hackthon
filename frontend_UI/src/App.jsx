@@ -5,6 +5,8 @@ import Markdown from 'react-markdown';
 import axios from "axios";
 ChartJS.register(ArcElement, Tooltip, Legend);
 const App = () => {
+
+  
   const [engagementData, setEngagementData] = useState({});
   const [markdownInsights, setMarkdownInsights] = useState("");
   const [input, setInput] = useState("");
@@ -48,7 +50,7 @@ const App = () => {
     axios
       .get(`${import.meta.env.VITE_APP_BACKEND_URL}/health`)
       .then((response) => {
-        console.log("Health check response:", response);
+        console.log("Health check response:", response.data);
       })
       .catch((error) => {
         console.error("Health check error:", error);

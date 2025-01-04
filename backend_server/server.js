@@ -129,6 +129,7 @@ app.post('/runFlow', async (req, res) => {
 });
 
 app.get('/health', (req, res) => {
+    console.log('Health Check');
     res.send('Hello, World! Techies, Server is up and running');
 });
 
