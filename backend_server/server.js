@@ -128,6 +128,10 @@ app.post('/runFlow', async (req, res) => {
     }
 });
 
+app.get('/health', (req, res) => {
+    res.send('Hello, World! Techies, Server is up and running');
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

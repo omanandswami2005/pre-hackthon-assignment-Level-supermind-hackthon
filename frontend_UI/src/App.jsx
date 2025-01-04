@@ -15,10 +15,14 @@ const App = () => {
   const [error, setError] = useState(null);
 
   const loadingMessages = [
-    "🔍 Analyzing...",
+    "🔍 FullStackForce is Analyzing...",
     "🤔 Gathering data...",
     "📊 Generating insights...",
     "✨ Almost there...",
+    "🚀 Final",
+    "🎉 Done!",
+    "🔥 Just lil more :)",
+    
   ];
   useEffect(() => {
     let messageIndex = 0;
@@ -30,6 +34,26 @@ const App = () => {
       return () => clearInterval(interval); // Cleanup
     }
   }, [loading]);
+
+  useEffect(() => {
+    // Check if the browser supports dark mode
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      setDarkMode(true);
+    }
+
+    //health check
+    axios
+      .get(`${import.meta.env.VITE_APP_BACKEND_URL}/health`)
+      .then((response) => {
+        console.log("Health check response:", response);
+      })
+      .catch((error) => {
+        console.error("Health check error:", error);
+      });
+  }, []);
 
   const handleInputChange = (event) => {
     setInput(event.target.value);
