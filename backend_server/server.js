@@ -10,7 +10,17 @@ class LangflowClient {
         this.applicationToken = applicationToken;
     }
 
-    async post(endpoint, body, headers = { "Content-Type": "application/json" }) {
+/*************  ✨ Codeium Command ⭐  *************/
+    /**
+     * Send a POST request to the given endpoint with the given body.
+     *
+     * @param {string} endpoint - The endpoint to send the request to.
+     * @param {Object} body - The body of the request.
+     * @param {Object} [headers={ "Content-Type": "application/json" }] - The headers for the request.
+     * @returns {Promise<Object>} - A promise that resolves with the JSON response from the server.
+     * @throws {Error} - If there is an error with the request.
+
+/******  32569dd7-a807-4526-b78c-ad97c77d0a6a  *******/    async post(endpoint, body, headers = { "Content-Type": "application/json" }) {
         headers["Authorization"] = `Bearer ${this.applicationToken}`;
         headers["Content-Type"] = "application/json";
         const url = `${this.baseURL}${endpoint}`;
